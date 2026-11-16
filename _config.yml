@@ -1,1 +1,6 @@
-
+title: "Shian's Blog"
+theme: minima
+header_pages:
+  - index.md
+  - posts.md
+  - categories.md
