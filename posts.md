@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 11月回顧
+title: Posts
 categories: [Monthly Review]
 ---
 
