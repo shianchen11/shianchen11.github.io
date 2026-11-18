@@ -1,3 +1,8 @@
+---
+layout: page
+title: Posts
+---
+
 {% for post in site.posts %}
 <article>
   <p class="post-meta">{{ post.date | date: "%Y/%m/%d" }}</p>
