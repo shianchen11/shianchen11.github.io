@@ -1,23 +1,11 @@
----
-layout: page
-title: Posts
-categories: [Monthly Review]
----
-
-## 目錄
----
-- [前言](#intro)
-- [預定目標回顧](#goals)
-
-## 前言
----
-{: #intro}
-
-這個月我開始用 GitHub Pages 整理自己的技術筆記。
-
-## 目標回顧
----
-{: #goals}
-
-- 完成部落格的導覽列
-- 發布第一篇學習筆記
+{% for post in site.posts %}
+<article>
+  <p class="post-meta">{{ post.date | date: "%Y/%m/%d" }}</p>
+  <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+  {{ post.excerpt }}
+  <p><a href="{{ post.url | relative_url }}">閱讀全文 →</a></p>
+</article>
+{% unless forloop.last %}
+<hr>
+{% endunless %}
+{% endfor %}
