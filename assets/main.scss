@@ -1,1 +1,28 @@
+@import "minima";
 
+/* 月誌配色 */
+.post.h-entry .post-title {
+  color: #286451;
+  font-size: 1.9rem;
+  line-height: 1.4;
+}
+
+.post.h-entry .post-content h2 {
+  color: #a34c32;
+  font-size: 1.4rem;
+}
+
+.post-content ul.task-list {
+  margin-left: 0;
+  padding: .75rem 1rem;
+  list-style: none;
+  background: #fff0e6;
+  border-left: 4px solid #c76e4d;
+}
+
+.post-content #每日紀錄 + ul > li > strong:first-child {
+  color: #286451;
+  background: #e1f1e6;
+  padding: .1em .4em;
+  border-radius: .25em;
+}
