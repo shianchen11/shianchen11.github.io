@@ -1,49 +1,26 @@
 ---
 ---
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap');
+
 @import "minima";
 
-/* 月誌文章字體 */
-.post.h-entry {
-  font-family: Georgia, "Noto Serif TC", "Songti TC", "標楷體", serif;
+/* 全站字體 */
+body {
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+  font-weight: 400;
 }
 
-/* 標題和整份清單回到白底 */
-.post.h-entry #每日紀錄,
-.post.h-entry #每日紀錄 + ul {
-  padding: 0;
-  border: 0;
-  background: transparent;
+/* 文章標題 */
+.post-title {
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-weight: 600;
 }
 
-.post.h-entry #每日紀錄 {
-  margin-bottom: .75rem;
-  color: #286451;
-}
-
-.post.h-entry #每日紀錄 + ul {
-  margin: 0 0 1rem;
-  list-style: none;
-}
-
-/* 每一天的文字各有一個淡綠框 */
-.post.h-entry #每日紀錄 + ul > li {
-  position: relative;
-  margin: 0 0 .75rem 4rem;
-  padding: .7rem .9rem;
-  border-radius: .5rem;
-  background: #e1f1e6;
-}
-
-/* 日期獨立放在內容框左邊 */
-.post.h-entry #每日紀錄 + ul > li > strong:first-child,
-.post.h-entry #每日紀錄 + ul > li > p:first-child > strong:first-child {
-  position: absolute;
-  top: .7rem;
-  left: -4rem;
-  padding: 0 .3em;
-  border-radius: .25em;
-  color: #286451;
-  background: #f0f6f2; /* 日期若只想留綠字，這裡改成 transparent */
-  white-space: nowrap;
+/* 文章內容 */
+.post-content {
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  line-height: 1.9;
 }
