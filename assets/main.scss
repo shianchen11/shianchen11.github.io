@@ -1,22 +1,295 @@
 ---
 ---
 
-/* 全站字體 */
+@import "minima";
+
+:root {
+  --journal-paper: #faf9f5;
+  --journal-ink: #302f28;
+  --journal-body: #45453e;
+  --journal-muted: #66695f;
+  --journal-accent: #465b49;
+  --journal-line: #d4d5c9;
+  --journal-wash: #eff1e9;
+  --journal-serif: "Noto Serif TC", "Noto Serif CJK TC", "Songti TC", "PMingLiU", serif;
+  --journal-sans: "Inter", "Noto Sans TC", "Noto Sans CJK TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --journal-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
 body {
-  font-family: "Inter", "Noto Sans TC", sans-serif;
-  font-size: 16px;
-  line-height: 1.9;
-  font-weight: 400;
+  background: var(--journal-paper);
+  color: var(--journal-body);
+  font-family: var(--journal-sans);
 }
 
-/* 文章標題 */
-.post-title {
-  font-family: "Inter", "Noto Sans TC", sans-serif;
-  font-weight: 600;
+.site-header {
+  min-height: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--journal-line);
+}
+.site-header > .wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 46rem;
+  min-height: 4.5rem;
+}
+.site-header > .wrapper::after { display: none; }
+.site-title, .site-title:visited {
+  float: none;
+  margin: 0;
+  color: var(--journal-ink);
+  font: italic 1.6rem/1.2 var(--journal-serif);
+  letter-spacing: -.045em;
+}
+.site-nav { float: none; line-height: inherit; }
+.site-nav .page-link, .site-nav .page-link:visited {
+  display: inline-block;
+  color: var(--journal-muted);
+  font-size: .875rem;
+  line-height: 1.6;
+}
+.site-nav .page-link:not(:last-child) { margin-right: 1.2rem; }
+.site-nav a:hover, .site-title:hover { color: var(--journal-accent); }
+body:has(.journal-index, .post.h-entry) .site-nav a[href$="/posts.html"] {
+  color: var(--journal-ink);
+  text-decoration: underline;
+  text-decoration-color: #82917c;
+  text-underline-offset: .4em;
+}
+a:focus-visible {
+  outline: 2px solid var(--journal-accent);
+  outline-offset: 4px;
 }
 
-/* 文章內容 */
-.post-content {
-  font-family: "Inter", "Noto Sans TC", sans-serif;
-  line-height: 1.9;
+.journal-index, .post.h-entry {
+  box-sizing: border-box;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.25rem 0 3rem;
+}
+.journal-index > h1, .post.h-entry .post-title {
+  margin: 0;
+  color: var(--journal-ink);
+  font: 700 2rem/1.42 var(--journal-serif);
+  letter-spacing: .015em;
+  overflow-wrap: anywhere;
+}
+.journal-index > h1 { margin-bottom: 1.65rem; }
+.journal-entry {
+  display: grid;
+  grid-template-columns: 5.75rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.65rem 0 1.8rem;
+  border-top: 1px solid var(--journal-line);
+}
+.journal-entry:last-of-type { border-bottom: 1px solid var(--journal-line); }
+.journal-stamp { display: block; color: var(--journal-accent); }
+.journal-year {
+  display: block;
+  font: .78rem/1.4 var(--journal-mono);
+  letter-spacing: .09em;
+}
+.journal-month {
+  display: block;
+  margin-top: .3rem;
+  font: 2.55rem/1 var(--journal-serif);
+  font-variant-numeric: lining-nums;
+  white-space: nowrap;
+}
+.journal-month small {
+  margin-left: .24rem;
+  font: .8rem var(--journal-sans);
+}
+.journal-entry h2 {
+  margin: 0 0 .45rem;
+  font: 600 1.42rem/1.5 var(--journal-serif);
+}
+.journal-entry h2 a, .journal-entry h2 a:visited {
+  color: var(--journal-ink);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.journal-entry h2 a:hover, .journal-entry h2 a:focus-visible {
+  color: var(--journal-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
+}
+.journal-arrow {
+  display: inline-block;
+  margin-left: .5rem;
+  color: var(--journal-accent);
+  font: 1rem/1 var(--journal-sans);
+  vertical-align: .1em;
+}
+.journal-entry p {
+  margin: 0;
+  color: var(--journal-muted);
+  font-size: .97rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.post.h-entry .post-header {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  padding-bottom: 1.15rem;
+  margin-bottom: 1.3rem;
+  border-bottom: 1px solid var(--journal-line);
+}
+.post.h-entry .post-meta {
+  margin: 0;
+  color: var(--journal-muted);
+  font: .8rem/1.65 var(--journal-mono);
+  letter-spacing: .025em;
+}
+.post.h-entry .post-content {
+  margin: 0;
+  color: var(--journal-body);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  overflow-wrap: break-word;
+}
+.post.h-entry .post-content p { margin: 0 0 1em; }
+.post.h-entry .post-content h2 {
+  margin: 1.6rem 0 .55rem;
+  color: var(--journal-ink);
+  font: 600 1.5rem/1.55 var(--journal-serif);
+  letter-spacing: .025em;
+}
+.post.h-entry .post-content h3 {
+  margin: 1.1rem 0 .4rem;
+  font: 600 1.1rem/1.55 var(--journal-serif);
+}
+.post.h-entry .post-content a, .post.h-entry .post-content a:visited {
+  color: var(--journal-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
+}
+.post.h-entry .post-content a:hover { text-decoration-thickness: 2px; }
+.post.h-entry .post-content :not(pre) > code {
+  padding: .05em .3em;
+  color: var(--journal-ink);
+  background: #eeede6;
+  border: 0;
+  border-radius: .2em;
+  font-size: .88em;
+}
+
+.post-content ul.task-list {
+  margin: 0;
+  padding: .75rem 1rem;
+  background: var(--journal-wash);
+  border-left: 2px solid #899981;
+}
+.post-content .task-list-item {
+  position: relative;
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: none;
+}
+.post-content .task-list-item + .task-list-item { margin-top: .35rem; }
+.post-content .task-list-item-checkbox {
+  position: absolute;
+  top: .55rem;
+  left: 0;
+  width: .85rem;
+  height: .85rem;
+  margin: 0;
+  appearance: none;
+  border: 1px solid #75826f;
+  border-radius: 2px;
+  background: var(--journal-paper);
+  opacity: 1;
+}
+.post-content .task-list-item-checkbox:checked {
+  background: var(--journal-accent);
+  border-color: var(--journal-accent);
+}
+.post-content .task-list-item-checkbox:checked::after {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 7px;
+  margin: 0 auto;
+  border: solid white;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+@media (forced-colors: active) {
+  .post-content .task-list-item-checkbox { appearance: auto; }
+  .post-content .task-list-item-checkbox:checked::after { display: none; }
+}
+
+/* A bold date followed by a full-width space matches the journal's Markdown. */
+.post-content #每日紀錄 + ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.post-content #每日紀錄 + ul > li {
+  --date-column: 4.6rem;
+  margin: 0;
+  padding: .7rem 0;
+  border-top: 1px solid var(--journal-line);
+}
+.post-content #每日紀錄 + ul > li:has(> strong:first-child) {
+  padding-left: var(--date-column);
+  text-indent: calc(0px - var(--date-column));
+}
+.post-content #每日紀錄 + ul > li > strong:first-child {
+  display: inline-block;
+  width: calc(var(--date-column) - 1rem);
+  color: var(--journal-accent);
+  font: 600 .84rem/1.5 var(--journal-mono);
+  font-variant-numeric: tabular-nums;
+  text-indent: 0;
+}
+
+@media (max-width: 600px) {
+  .site-header > .wrapper, .page-content > .wrapper {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+  .site-header > .wrapper {
+    min-height: 3.6rem;
+    flex-wrap: wrap;
+    gap: .35rem .8rem;
+  }
+  .site-title, .site-title:visited { font-size: 1.35rem; }
+  .site-nav {
+    position: static;
+    border: 0;
+    background: transparent;
+  }
+  .site-nav label[for="nav-trigger"], .site-nav .menu-icon { display: none; }
+  .site-nav input ~ .trigger, .site-nav input:checked ~ .trigger {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    padding: 0;
+  }
+  .site-nav .page-link, .site-nav .page-link:not(:last-child) {
+    display: block;
+    margin: 0;
+    padding: .35rem 0;
+    font-size: .8125rem;
+  }
+  .journal-index, .post.h-entry { padding: .2rem 0 2rem; }
+  .journal-index > h1, .post.h-entry .post-title { font-size: 1.65rem; }
+  .journal-index > h1 { margin-bottom: 1.1rem; }
+  .journal-entry { grid-template-columns: 3.7rem minmax(0, 1fr); gap: .9rem; padding: 1.1rem 0; }
+  .journal-month { font-size: 1.95rem; }
+  .journal-entry h2 { font-size: 1.22rem; }
+  .post.h-entry .post-content h2 { font-size: 1.22rem; }
+  .post-content #每日紀錄 + ul > li { --date-column: 3.75rem; }
+}
+
+@media (max-width: 370px) {
+  .site-header > .wrapper { padding-top: .65rem; padding-bottom: .45rem; }
+  .site-header .site-nav { width: 100%; }
 }
